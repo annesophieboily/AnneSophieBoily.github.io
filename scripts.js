@@ -94,6 +94,11 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
+
+//Permet de recommencer le jeu
+//Enlève le message de victoire ainsi que le bouton pour recommencer
+//Remet le nombre de tour et le nombre de match à 0
+//Retourne les cartes et les remélanges
 function restart() {
   victoireMessage.style.display = "none";
   recommencerContainer.style.display = "none";
@@ -109,6 +114,9 @@ function restart() {
   
 }
 
+
+//Permet d'afficher le message de victoire ainsi que le bouton pour recommencer
+//Met aussi jour le meilleur nombre de tour s'il est meilleur que l'ancien en mémoire
 function fin() {
   victoireMessage.style.display = "block";
   recommencerContainer.style.display = "block";
