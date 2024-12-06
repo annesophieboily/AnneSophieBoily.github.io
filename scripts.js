@@ -1,8 +1,35 @@
 const cards = document.querySelectorAll('.memory-card');
+const tour = document.getElementById("tour");
+const meilleurToursText = document.getElementById("meilleurTours");
+const victoireMessage = document.getElementById("victoireMessage");
+const recommencerContainer = document.getElementById("recommencerContainer");
+const fermer = document.getElementById("fermer");
+const jamais = document.getElementById("jamais");
+const dialog = document.getElementById("dialog");
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let nbMatch = 0;
+let tours = 0;
+let meilleurTours = 100000000000000;
+
+window.onload = function() {
+
+  if (localStorage.getItem('noShowModal') !== 'true') {
+    dialog.showModal();
+  }
+
+  fermer.onclick = function() {
+    dialog.close();
+  }
+
+  jamais.onclick = function() {
+    localStorage.setItem('noShowModal', 'true');
+    dialog.close();
+  }
+
+}
 
 function flipCard() {
   if (lockBoard) return;
@@ -26,8 +53,13 @@ function flipCard() {
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
+  tours += 1;
+  tour.innerText = "Nombre de tour : " + tours;
   isMatch ? disableCards() : unflipCards();
+  isMatch ? nbMatch++ : nbMatch;
+  if (nbMatch == 6) {
+    fin()
+  }
 }
 
 function disableCards() {
@@ -61,3 +93,27 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+function restart() {
+  victoireMessage.style.display = "none";
+  recommencerContainer.style.display = "none";
+  tours = 0;
+  tour.innerText = "Nombre de tour : " + tours;
+  nbMatch = 0;
+  cards.forEach(card => {
+    card.classList.remove('flip');
+    card.addEventListener('click', flipCard);
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+  
+}
+
+function fin() {
+  victoireMessage.style.display = "block";
+  recommencerContainer.style.display = "block";
+  if (tours < meilleurTours) {
+    meilleurTours = tours;
+    meilleurToursText.innerText = "Meilleur nombre de tour : " + meilleurTours;
+  }
+}

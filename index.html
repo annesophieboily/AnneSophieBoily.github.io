@@ -8,59 +8,86 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <dialog id="dialog">
+    <h1 id="titre">Projet Personnel</h1>
+    <p id="cours"><i>Design web gr.2 - Automne 2024</i></p>
+    <h4 id="realise">Réalisé par :</h4>
+    <p id="nom"><i>Anne-Sophie Boily</i></p>
+    <h4 id="inspiration">Inspiration :</h4>
+    <p id="lien"><a href="https://github.com/code-sketch/memory-game" target="_blank"><i>https://github.com/code-sketch/memory-game</i></a></p>
+    <img src="./img/megaman.png" width="160px" id="megaman">
+    <button id="fermer">Fermer la fenêtre</button>
+    <button id="jamais"><i>Ne plus afficher cette fenêtre</i></button>
+  </dialog>
+
+  <h1 id="monTitre">Jeu de mémoire Valorant</h1>
+  <p id="tour">Nombre de tour : 0</p>
+  <p id="meilleurTours">Meilleur nombre de tour : 0</p>
+  <p id="refresh">Rafraichir la page pour remettre à 0 le meilleur nombre de tour !</p>
+
+
+  <div id="victoireMessage">
+    Félicitations, vous avez gagné !
+  </div>
+  <div id="recommencerContainer">
+    <button id="recommencerBtn" onclick="restart()">Recommencer</button>
+  </div>
+  
+
   <section class="memory-game">
-    <div class="memory-card" data-framework="aurelia">
-      <img class="front-face" src="../img/aurelia.svg" alt="Aurelia" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="brimstone">
+      <img class="front-face" src="./img/brim.png" alt="Brimstone" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
-    <div class="memory-card" data-framework="aurelia">
-      <img class="front-face" src="../img/aurelia.svg" alt="Aurelia" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-
-    <div class="memory-card" data-framework="vue">
-      <img class="front-face" src="../img/vue.svg" alt="Vue" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="vue">
-      <img class="front-face" src="../img/vue.svg" alt="Vue" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="brimstone">
+      <img class="front-face" src="./img/brim.png" alt="Brimstone" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
 
-    <div class="memory-card" data-framework="angular">
-      <img class="front-face" src="../img/angular.svg" alt="Angular" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="jett">
+      <img class="front-face" src="./img/jett.png" alt="Jett" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
-    <div class="memory-card" data-framework="angular">
-      <img class="front-face" src="../img/angular.svg" alt="Angular" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-
-    <div class="memory-card" data-framework="ember">
-      <img class="front-face" src="../img/ember.svg" alt="Ember" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="ember">
-      <img class="front-face" src="../img/ember.svg" alt="Ember" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="jett">
+      <img class="front-face" src="./img/jett.png" alt="Jett" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
 
-    <div class="memory-card" data-framework="backbone">
-      <img class="front-face" src="../img/backbone.svg" alt="Backbone" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="sage">
+      <img class="front-face" src="./img/sage.png" alt="Sage" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
-    <div class="memory-card" data-framework="backbone">
-      <img class="front-face" src="../img/backbone.svg" alt="Backbone" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="sage">
+      <img class="front-face" src="./img/sage.png" alt="Sage" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
 
-    <div class="memory-card" data-framework="react">
-      <img class="front-face" src="../img/react.svg" alt="React" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="sova">
+      <img class="front-face" src="./img/sova.png" alt="Sova" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
-    <div class="memory-card" data-framework="react">
-      <img class="front-face" src="../img/react.svg" alt="React" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+    <div class="memory-card" data-framework="sova">
+      <img class="front-face" src="./img/sova.png" alt="Sova" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
+    </div>
+
+    <div class="memory-card" data-framework="killjoy">
+      <img class="front-face" src="./img/kj.png" alt="Killjoy" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
+    </div>
+    <div class="memory-card" data-framework="killjoy">
+      <img class="front-face" src="./img/kj.png" alt="Killjoy" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
+    </div>
+
+    <div class="memory-card" data-framework="omen">
+      <img class="front-face" src="./img/omen.png" alt="Omen" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
+    </div>
+    <div class="memory-card" data-framework="omen">
+      <img class="front-face" src="./img/omen.png" alt="Omen" />
+      <img class="back-face" src="./img/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Card Background" />
     </div>
   </section>
 
