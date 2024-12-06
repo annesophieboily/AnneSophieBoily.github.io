@@ -14,6 +14,8 @@ let nbMatch = 0;
 let tours = 0;
 let meilleurTours = 100000000000000;
 
+//Regarde au lancement du site si l'utilisateur à déja cliquer le "ne plus afficher"
+//Si non, on lui affiche le dialog
 window.onload = function() {
 
   if (localStorage.getItem('noShowModal') !== 'true') {
@@ -51,6 +53,7 @@ function flipCard() {
   checkForMatch();
 }
 
+//Ajout du nombre de tour et du nombre de match pour déterminer quand le jeu est fini
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
   tours += 1;
